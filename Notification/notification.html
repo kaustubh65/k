@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Notification Popup</title>
+    <style>
+      #popup {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .hidden { 
+        display: none;
+      }
+
+      #popup h2 {
+        margin-top: 0;
+      }
+
+      #popup p {
+        margin-bottom: 10px;
+      }
+
+      #close-popup {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="show-popup">Show Popup</button>
+    <div id="popup" class="hidden"> <!-- Keep the 'hidden' class here -->
+      <h2>Notification</h2>
+      <p>This is a notification popup.</p>
+      <button id="close-popup">Close</button>
+    </div>
+
+    <script>
+      const showPopup = document.getElementById("show-popup");
+      const popup = document.getElementById("popup");
+      const closePopup = document.getElementById("close-popup");
+
+      showPopup.addEventListener("click", () => {
+        popup.classList.remove("hidden");
+      });
+
+      closePopup.addEventListener("click", () => {
+        popup.classList.add("hidden");
+      });
+    </script>
+  </body>
+</html>

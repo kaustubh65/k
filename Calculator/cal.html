@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inputBox" value="0">
+        <div>
+            <button type="button" onclick="buttonClicked(this)">AC</button>
+            <button type="button" onclick="buttonClicked(this)">DEL</button>
+            <button type="button" onclick="buttonClicked(this)">%</button>
+            <button type="button" onclick="buttonClicked(this)">/</button>
+        </div>
+
+        <div>
+            <button type="button" onclick="buttonClicked(this)">7</button>
+            <button type="button" onclick="buttonClicked(this)">8</button>
+            <button type="button" onclick="buttonClicked(this)">9</button>
+            <button type="button" onclick="buttonClicked(this)">*</button>
+        </div>
+
+        <div>
+            <button type="button" onclick="buttonClicked(this)">4</button>
+            <button type="button" onclick="buttonClicked(this)">5</button>
+            <button type="button" onclick="buttonClicked(this)">6</button>
+            <button type="button" onclick="buttonClicked(this)">+</button>
+        </div>
+
+        <div>
+            <button type="button" onclick="buttonClicked(this)">1</button>
+            <button type="button" onclick="buttonClicked(this)">2</button>
+            <button type="button" onclick="buttonClicked(this)">3</button>
+            <button type="button" onclick="buttonClicked(this)">-</button>
+        </div>
+
+        <div>
+            <button type="button" onclick="buttonClicked(this)">+/-</button>
+            <button type="button" onclick="buttonClicked(this)">0</button>
+            <button type="button" onclick="buttonClicked(this)">.</button>
+            <button type="button" onclick="buttonClicked(this)" style="background-color: rgb(162, 62, 62);">=</button>
+        </div>
+    </div>
+    
+
+    <script>
+        var inputBox = document.getElementById("inputBox");
+
+        var button = document.querySelectorAll("button");
+
+        var str = "";
+
+        const buttonClicked = (b) => 
+        {
+            if(b.innerHtml=="=")
+            {
+                str = String(eval(str));
+                inputBox.value=str;
+            }
+            else if(b.innerHtml=="DEL")
+            {
+                if(inputBox.value.length!=1)
+                {
+                    str = str.substring(0,str.length-1);
+                    inputBox.value=str;
+                }
+                else
+                {
+                    str="";
+                    inputBox.value=str;
+                }
+            }
+            else if(b.innerHtml=="AC")
+            {
+                str="";
+                inputBox.value=str;
+            }
+            else if(b.innerHtml=="+/-")
+            {
+                str=String(-eval(str));
+                inputBox.value(str);
+            }
+            else
+            {
+                str += b.innerHtml;
+                inputBox.value(str);
+            }
+        }
+    </script>
+</body>
+</html>
